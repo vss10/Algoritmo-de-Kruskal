@@ -1,14 +1,16 @@
 Trabalho Prático 1 - Técnicas de Busca e Ordenação
-ALUNOS: Victor Soares, Eduardo Perim e André Nemer
-DISCIPLINA: Técnicas de busca e ordenação- 2023/1
-1. Introdução:
+**ALUNOS:** Victor Soares, Eduardo Perim e André Nemer
+**DISCIPLINA:** Técnicas de Busca e Ordenação- 2023/1
+
+**1. Introdução:**
 Neste documento, será descrito o processo de criação de um algoritmo de
 agrupamento, utilizando conceitos como Kruskal e Minimum Spanning Tree. Haverá
 informações acerca das estruturas de dados utilizadas, das principais funções implementadas
 e de algumas decisões do processo criativo. Além disso, serão apresentados os resultados
 referentes à análise de complexidade e tempo de execução do código em questão, estando
 explicitados em tabelas.
-2. Metodologia:
+
+**2. Metodologia:**
 No algoritmo produzido, foram utilizadas quatro estruturas de dados distintas, sendo
 elas os “structs” Ponto, Aresta, Subconjunto e QU.
 O “struct” Ponto tem como função armazenar as informações retiradas do arquivo de
@@ -45,16 +47,21 @@ de pontos disponibilizados na entrada, e utilizado em operações de “union”
 agrupar os pontos.
 No que se refere às funções utilizadas no programa, as seguintes se destacam quanto à
 sua importância:
+
 - float Distancia(Ponto *p1, Ponto *p2);
 - void OrdenaArestas(Aresta **a, int num);
 - extern void Algoritmo(QU *Q, int N, Aresta **a, int k);
 - void ImprimeSubconjuntos(QU *Q, Ponto **p, int k, int N, FILE *f);
+
 A função “Distancia” recebe dois ponteiros de struct Ponto e utiliza o vetor de
 coordenadas de cada Ponto para calcular a distância entre eles, segundo a fórmula da
-distância euclidiana. Tem como retorno um float, sendo ele a distancia entre dois pontos.A função “OrdenaArestas” recebe um vetor de struct Aresta e um int “num”, sendo
+distância euclidiana. Tem como retorno um float, sendo ele a distancia entre dois pontos.
+
+A função “OrdenaArestas” recebe um vetor de struct Aresta e um int “num”, sendo
 eles as arestas calculadas entre todos os pontos e a quantidade de arestas que foram
 calculadas, respectivamente. Por meio da função “qsort”, esse vetor de arestas é ordenado de
 forma crescente.
+
 A função “Algoritmo” recebe um ponteiro de QU “Q”, um int “N”, um vetor de struct
 Aresta e um int “k”, sendo a estrutura de quick-union contendo os índices dos pontos, a
 quantidade de pontos existentes, um vetor de arestas ordenado e o número de grupos que
@@ -65,6 +72,7 @@ subconjunto e a função retorna 1. Vale ressaltar que caso já pertençam ao me
 a função retorna 0. Quando a "UF_union" retorna 1, a variável "numArestasLigadas" é
 incrementada até que seja (N-k), pois essa é a mínima quantidade de ligações necessárias
 para formar “k” conjuntos.
+
 A função “ImprimeSubconjuntos” recebe um ponteiro de QU “Q”, um vetor de
 struct Ponto , um int “k”,um int “N” e um arquivo “f”, sendo a estrutura de quick-union
 contendo os índices dos pontos, um vetor com todos os pontos, a quantidade de grupos que
